@@ -1,0 +1,24 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+elpa/
+
+# Backup files
+*~
+
+# Undo-tree save-files
+*.~undo-tree
+
+# Projectile things
+projectile-bookmarks.eld
+
+# Generated config
+config.el
+# Personal emacs things idk
+recentf
+ac-comphist.dat 
+.lsp-session-v1
+*cache/
+*#

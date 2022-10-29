@@ -146,31 +146,37 @@
 #+END_SRC
 
 * Languages
+** rustic-mode
+#+BEGIN_SRC emacs-lisp
+(use-package rustic)
+(setq rustic-analyzer-command '("~/.local/bin/rust-analyzer"))
+#+END_SRC
 ** lsp-mode
 #+BEGIN_SRC emacs-lisp
-  (use-package lsp-mode
-    :ensure t
-      :hook (
-  (c-mode . lsp)
-  (lsp-mode . lsp-enable-which-key-integration)
-  (lsp-mode . lsp-ui-mode))
-  :commands lsp)
+(use-package lsp-mode
+  :ensure t
+  :hook (
+    (c-mode . lsp)
+    (rustic-mode . lsp)
+    (lsp-mode . lsp-enable-which-key-integration)
+    (lsp-mode . lsp-ui-mode))
+    :commands lsp)
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :init
+  :ensure t
+  :custom
+  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-show-hover t)
+  (lsp-ui-doc-enable nil))
 
-    (use-package lsp-ui :commands lsp-ui-mode
-    :init
-    :ensure t
-    :custom
-    (lsp-ui-peek-always-show t)
-    (lsp-ui-sideline-show-hover t)
-    (lsp-ui-doc-enable nil))
-  (setq lsp-keymap-prefix "C-c l")
-
+(setq lsp-keymap-prefix "C-c l")
 #+END_SRC
 ** Syntax checker
    #+BEGIN_SRC emacs-lisp
    (use-package flycheck
    :ensure t
-   :config(global-flycheck-mode))
+   :init (global-flycheck-mode))
    #+END_SRC
 
 

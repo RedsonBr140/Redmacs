@@ -21,7 +21,7 @@
    #+END_SRC
 ** Add line counter
    #+BEGIN_SRC emacs-lisp
-   (global-linum-mode t)
+     (add-hook 'prog-mode-hook 'display-line-numbers-mode)
    #+END_SRC
 ** Setup MELPA and use-package
    #+BEGIN_SRC emacs-lisp
@@ -71,7 +71,7 @@
    #+END_SRC
 ** Set fonts
    #+BEGIN_SRC emacs-lisp
-     (set-face-attribute 'default nil :font "Fira Code Nerd Font:weight=medium" :height 120)
+     (set-face-attribute 'default nil :font "UbuntuMono Nerd Font Mono:weight=Regular" :height 120)
    #+END_SRC
 ** Doom-modeline
    #+BEGIN_SRC emacs-lisp

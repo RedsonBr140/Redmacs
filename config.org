@@ -41,6 +41,7 @@
    #+BEGIN_SRC emacs-lisp
      (setq indent-tabs-mode nil)
      (setq-default electric-indent-inhibit t)
+     (setq org-src-preserve-indentation t)
      (electric-pair-mode 1)
    #+END_SRC
 ** get rid of ".#filename"

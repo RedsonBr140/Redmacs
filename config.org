@@ -153,9 +153,15 @@
 #+END_SRC
 
 * Languages
+** go-mode
+#+BEGIN_SRC emacs-lisp
+(use-package go-mode
+  :ensure t)
+#+END_SRC
 ** rustic-mode
 #+BEGIN_SRC emacs-lisp
-(use-package rustic)
+(use-package rustic
+  :ensure t)
 (setq rustic-analyzer-command '("~/.local/bin/rust-analyzer"))
 #+END_SRC
 ** lsp-mode
@@ -165,6 +171,7 @@
   :hook (
     (c-mode . lsp)
     (rustic-mode . lsp)
+    (go-mode . lsp)
     (lsp-mode . lsp-enable-which-key-integration)
     (lsp-mode . lsp-ui-mode))
     :commands lsp)

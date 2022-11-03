@@ -80,21 +80,28 @@
    :hook (after-init . doom-modeline-mode))
    #+END_SRC
 ** dashboard
-   #+BEGIN_SRC emacs-lisp
-     (use-package dashboard
-     :ensure t
-     :config
-     (dashboard-setup-startup-hook))
-	     (setq dashboard-center-content t)
-	     (setq dashboard-show-shortcuts nil)
-	     (setq dashboard-set-heading-icons t)
-	     (setq dashboard-set-file-icons t)
-	     (setq dashboard-startup-banner 'logo)
-   #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq dashboard-center-content t)
+(setq dashboard-show-shortcuts nil)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+(setq dashboard-startup-banner 'logo)
+#+END_SRC
+** org-bullets
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets
+  :ensure t
+  :hook (org-mode-hook org-bullets-mode))
+#+END_SRC
 ** Word wrap
-   #+BEGIN_SRC emacs-lisp
-     (visual-line-mode t)
-   #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(visual-line-mode t)
+#+END_SRC
 * General Packages
 ** which-key
    #+BEGIN_SRC emacs-lisp

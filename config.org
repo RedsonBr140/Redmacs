@@ -52,6 +52,10 @@
 #+BEGIN_SRC emacs-lisp
 (setq org-hide-block-startup t)
 #+END_SRC
+** Save cursor position
+#+BEGIN_SRC emacs-lisp
+(save-place-mode 1)
+#+END_SRC
 * UI
 ** Theme
    #+BEGIN_SRC emacs-lisp
@@ -103,16 +107,26 @@
 #+BEGIN_SRC emacs-lisp
 (visual-line-mode t)
 #+END_SRC
+** Vertico
+#+BEGIN_SRC emacs-lisp
+(use-package vertico
+  :ensure t
+  :init
+  (vertico-mode))
+
+(use-package savehist
+  :ensure t
+  :init
+  (savehist-mode))
+#+END_SRC
 * General Packages
 ** which-key
    #+BEGIN_SRC emacs-lisp
-   (use-package which-key
-   :ensure t
-   :config
-   (progn
-   (which-key-setup-side-window-right)
-   (which-key-mode)))
-   #+END_SRC
+(use-package which-key 
+:ensure t
+:config (progn (which-key-setup-side-window-right) 
+(which-key-mode)))
+#+END_SRC
 ** try
    #+BEGIN_SRC emacs-lisp
      (use-package try
@@ -199,5 +213,8 @@
   :ensure t
   :hook (after-init-hook global-company-mode)
   :custom
-  (company-idle-delay 0.1))
+  (company-idle-delay 0.1)
+  (company-backends '((company-capf :with company-yasnippet company-dabbrev-code company-keywords company-semantic)
+                      (company-dabbrev) (company-files)
+)))
 #+END_SRC
